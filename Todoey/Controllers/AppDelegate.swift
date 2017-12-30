@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import RealmSwift
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+                
+        let dog = Dog()
+        dog.name = "Rex"
+        dog.age = 1
+        
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(dog)
+        }
+        
         return true
     }
 
