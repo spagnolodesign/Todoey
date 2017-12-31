@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class Dog : Object {
+class Category : Object {
     @objc dynamic var name = ""
-    @objc dynamic var age = 0
+    let items = List<Item>()
 }
